@@ -4,7 +4,27 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+let likeButton = document.getElementsByClassName("like")
+for (let i = 0; i < likeButton.length; i++){
+  likeButton[i].addEventListener("click", event => {
+    mimicServerCall() 
+     .then(data =>{
 
+      if (likeButton[i].querySelector('span').className === "like-glyph"){
+        //console.log(likeButton[i].querySelector('span').innerHTML)
+        likeButton[i].querySelector('span').textContent = FULL_HEART
+        likeButton[i].querySelector('span').className = "activated-heart"
+      }
+      else {
+        likeButton[i].querySelector('span').textContent = EMPTY_HEART
+        likeButton[i].querySelector('span').className = "like-glyph"
+      }
+     //.catch(error => console.log(error)))
+     
+    
+     })
+})}
+    
 
 
 //------------------------------------------------------------------------------
